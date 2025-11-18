@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Us | NovaTech Atelier — Styled Demo</title>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root{
+      --ink-hex: #1e293b;                 
+      --muted-rgb: rgb(100,116,139);     
+      --bg-rgba: rgba(246,247,251,0.95); 
+      --brand-hsl: hsl(212 68% 47%);    
+      --accent-hex: #8b5cf6;
+      --gold-rgb: rgb(201,162,39);
+      --card: #ffffff;
+      --line: #e8ebf2;
+      --glass: rgba(255,255,255,0.6);
+    }
+
+  
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:var(--ink-hex);
+      background: linear-gradient(180deg, var(--bg-rgba), #f3f5f9 60%);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.6;
+      padding:32px;
+    }
+
+    #about-header{
+      text-align:center;
+      padding:64px 18px;
+      color: #fff;
+      background: linear-gradient(180deg, #0f172a 0%, var(--brand-hsl) 50%, #4338ca 100%);
+      border-radius:16px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    #about-header::after{
+      content:"";
+      display:block;
+      width:240px;height:6px;
+      background:linear-gradient(90deg, transparent, var(--gold-rgb), transparent);
+      margin:18px auto 0;
+      border-radius:999px;
+      opacity:.9;
+    }
+    #about-header h1{font-family:"Playfair Display",serif;margin:0 0 8px;font-size:2.1rem}
+    #about-header p{max-width:880px;margin:0 auto;color:rgba(230,232,255,0.95)}
+
+
+    .container{max-width:1120px;margin:28px auto;padding:0 16px;display:grid;grid-template-columns:2fr 1fr;gap:20px}
+    .card{background:var(--card);border-radius:14px;border:1px solid var(--line);padding:22px;box-shadow:0 8px 28px rgba(15,23,42,0.06)}
+
+    h2{font-family:"Playfair Display",serif;margin:0 0 10px;font-size:1.2rem;color:var(--ink-hex)}
+    p.lead{color:var(--muted-rgb);margin:0 0 12px}
+
+
+    .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    article.member{
+      padding:18px;border-radius:12px;transition:transform .22s ease,box-shadow .22s ease;
+      border:1px solid var(--line);background:linear-gradient(180deg,#fff,#fbfbfe);
+      position:relative;overflow:visible;
+    }
+
+
+    article.member[data-role="ceo"]::before,
+    article.member[data-role="cto"]::before,
+    article.member[data-role="cdo"]::before{
+      content:attr(data-role);
+      text-transform:uppercase;
+      position:absolute;
+      left:12px;top:12px;
+      font-size:.65rem;padding:.28rem .5rem;border-radius:999px;
+      color: #222; background: linear-gradient(90deg, rgba(201,162,39,0.12), rgba(245,230,168,0.12));
+      border:1px solid rgba(0,0,0,0.04);
+      letter-spacing:.6px;
+    }
+
+    article.member:hover{transform:translateY(-8px);box-shadow:0 18px 46px rgba(15,23,42,0.12);border-color:#dfe6fb}
+
+
+    article.member img{width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid #eef4ff;display:block;margin-bottom:10px}
+
+
+    a.btn{display:inline-block;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:600;background:linear-gradient(90deg,var(--brand-hsl),var(--accent-hex));color:#fff}
+    a[target="_blank"]::after{content:" ↗️";font-weight:700}
+    a[target="_blank"]:hover{filter:brightness(.98);transform:translateY(-2px)}
+
+    ul.values{padding-left:1.1rem;margin:0;color:var(--muted-rgb)}
+    ul.values li{margin:.35rem 0}
+   
+    ul.values li::marker{color:var(--accent-hex)}
+    /* fallback for browsers without marker styling */
+    ul.values li::before{content:"•";color:var(--accent-hex);margin-right:.5rem;display:inline-block;width:.9rem}
+
+    /* -------------------------
+       Movies list (unordered) — demonstrate class & id selectors and pseudo-class
+       ------------------------- */
+    .movies{margin:10px 0 0;padding:0;list-style:none;display:flex;gap:10px;flex-wrap:wrap}
+    .movies li{padding:8px 12px;border-radius:10px;background:rgba(15,23,42,0.04);border:1px solid rgba(30,41,59,0.04)}
+    /* favorite movie uniquely styled using id + pseudo-element */
+    #fav-movie{
+      background: linear-gradient(90deg, rgba(139,92,246,0.12), rgba(43,108,176,0.06));
+      border:1px solid rgba(139,92,246,0.22);
+      box-shadow: 0 8px 20px rgba(139,92,246,0.06);
+      position:relative;
+      padding-right:34px;
+    }
+    /* pseudo-element badge for favorite */
+    #fav-movie::after{
+      content:"★ Favorite";
+      position:absolute;right:8px;top:8px;font-size:.7rem;padding:.18rem .45rem;border-radius:8px;background:var(--accent-hex);color:#fff;font-weight:700;
+    }
+    /* add focus-visible for keyboard users */
+    .movies li:focus-visible{outline:3px solid rgba(99,102,241,0.22);outline-offset:3px}
+
+    /* -------------------------
+       Cities list (ordered) — demonstrate nth-child (pseudo-class) to give random styles
+       ------------------------- */
+    ol.cities{margin:14px 0 0;padding-left:1.1rem}
+    ol.cities li{margin:8px 0;padding:10px;border-radius:8px;border:1px dashed rgba(30,41,59,0.04);display:flex;align-items:center;gap:12px}
+    ol.cities li::before{font-weight:700;color:var(--brand-hsl);margin-right:6px}
+    /* "randomized" styling using nth-child formulas */
+    ol.cities li:nth-child(1){background: linear-gradient(90deg, rgba(43,108,176,0.05), rgba(139,92,246,0.02));border-color: rgba(43,108,176,0.08)}
+    ol.cities li:nth-child(2){background: linear-gradient(180deg, rgba(139,92,246,0.03), rgba(201,162,39,0.02));border-color: rgba(139,92,246,0.06)}
+    ol.cities li:nth-child(3){background: linear-gradient(90deg, rgba(40,167,69,0.03), rgba(43,108,176,0.02));border-color: rgba(40,167,69,0.06)}
+    ol.cities li:nth-child(4){background: linear-gradient(90deg, rgba(244,114,182,0.03), rgba(99,102,241,0.02));border-color: rgba(244,114,182,0.06)}
+    ol.cities li:nth-child(5){background: linear-gradient(90deg, rgba(250,204,21,0.03), rgba(139,92,246,0.02));border-color: rgba(250,204,21,0.06)}
+    /* subtle transform on hover (pseudo-class) */
+    ol.cities li:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(15,23,42,0.06)}
+
+
+    .muted{color:var(--muted-rgb);font-size:.95rem}
+    .small{font-size:.85rem;color:#6b7280}
+    footer{grid-column:1/-1;text-align:center;margin-top:20px;color:#6b7280;font-size:.9rem}
+
+
+    @media (max-width:920px){ .container{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+
+  <header id="about-header" role="banner">
+    <h1>About NovaTech Atelier</h1>
+    <p>Design-forward technology studio crafting elegant, intelligent experiences for modern enterprises.</p>
+  </header>
+
+  <main class="container" role="main">
+
+    <section class="card" id="about" aria-labelledby="who">
+      <h2 id="who">Who We Are</h2>
+      <p class="lead">NovaTech Atelier blends design excellence with deep engineering. We partner with discerning brands to build AI-powered platforms, refined interfaces, and resilient cloud systems that scale gracefully.</p>
+
+      <p class="muted small">Browse our <a href="https://example.com/case-studies" target="_blank" rel="noopener">case studies</a> to see examples.</p>
+
+      <h3 class="small" style="margin-top:14px">Core Values</h3>
+      <ul class="values" aria-label="Company values">
+        <li>Elegance in function</li>
+        <li>Responsible AI and privacy</li>
+        <li>Measurable business outcomes</li>
+      </ul>
+
+
+      <h3 style="margin-top:18px">Team Movies (fun)</h3>
+      <ul class="movies" aria-label="Movies list">
+        <li tabindex="0">Inception (2010)</li>
+        <li tabindex="0">The Social Network (2010)</li>
+        <li id="fav-movie" tabindex="0">Her (2013)</li> 
+        <li tabindex="0">Ex Machina (2015)</li>
+      </ul>
+
+      <h3 style="margin-top:18px">Cities We Visit (ordered)</h3>
+      <ol class="cities" aria-label="Cities list">
+        <li>San Francisco — design & partnerships</li>
+        <li>London — EMEA strategy</li>
+        <li>Bengaluru — engineering hub</li>
+        <li>Berlin — product research</li>
+        <li>Singapore — APAC HQ</li>
+      </ol>
+    </section>
+
+
+    <aside class="card" id="side">
+      <h2>Leadership</h2>
+      <div class="team" role="list">
+        <article class="member" data-role="ceo" role="listitem">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Portrait of Oliver Kent">
+          <h3>Oliver Kent</h3>
+          <small class="small">Chief Executive Officer</small>
+          <p class="muted">Steers vision and partnerships with a focus on design-led strategy.</p>
+        </article>
+
+        <article class="member" data-role="cto" role="listitem">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Portrait of Isla Moreau">
+          <h3>Isla Moreau</h3>
+          <small class="small">Chief Technology Officer</small>
+          <p class="muted">Architects our AI and cloud foundations for reliability and speed.</p>
+        </article>
+
+        <article class="member" data-role="cdo" role="listitem">
+          <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Portrait of Rafael Ayers">
+          <h3>Rafael Ayers</h3>
+          <small class="small">Chief Design Officer</small>
+          <p class="muted">Leads product aesthetics and interaction systems with a human touch.</p>
+        </article>
+      </div>
+
+      <div style="margin-top:18px">
+        <h3 class="small">Contact</h3>
+        <p class="muted small">Work with us — <a class="btn" href="https://example.com/contact" target="_blank" rel="noopener">Start a conversation</a></p>
+      </div>
+    </aside>
+
+    <footer class="card" style="text-align:center">
+      ©️ 2025 NovaTech Atelier — Crafted with care.
+    </footer>
+  </main>
+
+</body>
+</html>

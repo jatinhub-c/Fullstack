@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UI Showcase — Sidebar, Product Card & Blog (Responsive)</title>
+  <style>
+    :root{
+      --bg:#f6f8fb; --card:#ffffff; --muted:#6b7280; --accent:#1abc9c; --danger:#ff6f61; --shadow:0 8px 30px rgba(15,23,42,0.08);
+      --max-width:1200px; --gap:20px;
+    }
+
+  
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial; background:var(--bg); color:#0f172a; -webkit-font-smoothing:antialiased}
+
+   
+    .page{max-width:var(--max-width);margin:28px auto;padding:20px;display:grid;grid-template-columns:260px 1fr;gap:var(--gap)}
+
+  
+    .sidebar{background:linear-gradient(180deg,#1f2a44, #25324a);color:#fff;padding:22px;border-radius:12px;position:sticky;top:20px;height:fit-content}
+    .sidebar h2{margin:0 0 12px;font-size:1.2rem;color:var(--accent)}
+    .sidebar nav ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+    .sidebar a{display:block;color:#e6eef0;text-decoration:none;padding:10px;border-radius:8px}
+    .sidebar a:hover{background:rgba(255,255,255,0.04);color:#fff;transform:translateX(4px)}
+    .sidebar .promo{margin-top:14px;padding:12px;background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(0,0,0,0.02));border-radius:8px;font-size:.95rem}
+
+    .content{padding:0}
+
+
+    .section-title{font-size:1.6rem;margin:6px 0 14px}
+
+   
+    .products{display:flex;flex-wrap:wrap;gap:20px}
+
+    .product-card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);width:280px;display:flex;flex-direction:column;transition:transform .22s ease,box-shadow .22s ease;border:1px solid rgba(15,23,42,0.04)}
+    .product-media{height:200px;background:#e6eef6;display:block}
+    .product-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .product-body{padding:14px;flex:1;display:flex;flex-direction:column}
+    .product-title{margin:0 0 6px;font-weight:600}
+    .product-desc{margin:0 0 12px;color:var(--muted);font-size:.95rem;flex:1}
+
+    .product-actions{display:flex;gap:10px;align-items:center}
+    .price{font-weight:700}
+    .buy-btn{margin-left:auto;background:var(--accent);color:#fff;border:0;padding:10px 12px;border-radius:10px;cursor:pointer;box-shadow:0 8px 20px rgba(26,188,156,0.18);transition:transform .15s ease}
+    .buy-btn:hover{transform:translateY(-3px)}
+
+
+    .card-outer{padding:12px;border-radius:14px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(15,23,42,0.03)}
+
+    .blog-grid{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px}
+    .blog-card{background:var(--card);flex:1 1 calc(33.333% - 13.33px);min-width:240px;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);border:1px solid rgba(15,23,42,0.04);transition:transform .18s ease}
+    .blog-media{height:160px;background:#ddd}
+    .blog-body{padding:14px;flex:1;display:flex;flex-direction:column}
+    .blog-title{margin:0 0 8px;font-size:1.05rem}
+    .blog-excerpt{margin:0 0 12px;color:var(--muted);flex:1}
+    .read-more{align-self:flex-start;padding:8px 12px;border-radius:8px;border:1px solid rgba(15,23,42,0.06);background:transparent;color:var(--accent);cursor:pointer}
+    .blog-card:hover{transform:translateY(-8px)}
+
+
+    @media (max-width:1000px){
+      .page{grid-template-columns:1fr;}
+      .sidebar{position:relative;order:2}
+      .content{order:1}
+      .product-card{width:calc(50% - 10px)}
+      .blog-card{flex-basis:calc(50% - 10px)}
+    }
+
+    @media (max-width:620px){
+      .product-card{width:100%}
+      .blog-card{flex-basis:100%}
+      .sidebar nav ul{flex-direction:row;gap:10px;justify-content:center}
+      .sidebar a{padding:8px 10px}
+    }
+
+
+    .muted{color:var(--muted)}
+    .grid-row{display:flex;gap:12px;align-items:center}
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <aside class="sidebar" aria-labelledby="site-menu">
+      <h2 id="site-menu">Menu</h2>
+      <nav>
+        <ul>
+          <li><a href="#products">Shop</a></li>
+          <li><a href="#blogs">Blogs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="promo">Free shipping over ₹999 • 30‑day returns</div>
+    </aside>
+
+  
+    <main class="content">
+
+    
+      <section id="products" class="card-outer">
+        <h2 class="section-title">Our Products</h2>
+        <div class="products">
+
+          <article class="product-card" aria-labelledby="p1">
+            <figure class="product-media"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=900&q=60&auto=format&fit=crop" alt="Modern Sneakers"></figure>
+            <div class="product-body">
+              <h3 id="p1" class="product-title">Modern Sneakers</h3>
+              <p class="product-desc">Comfortable everyday sneakers — breathable knit upper, cushioned sole for long walks.</p>
+
+              <div class="product-actions">
+                <div class="price">₹2,499</div>
+                <button class="buy-btn" aria-label="Buy Modern Sneakers">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" aria-labelledby="p2">
+            <figure class="product-media"><img src="https://images.unsplash.com/photo-1637412173653-de70428ee3ce?w=900&q=60&auto=format&fit=crop" alt="Smart Watch"></figure>
+            <div class="product-body">
+              <h3 id="p2" class="product-title">Smart Watch</h3>
+              <p class="product-desc">Track health, notifications and battery‑efficient performance with a crisp OLED display.</p>
+
+              <div class="product-actions">
+                <div class="price">₹6,999</div>
+                <button class="buy-btn" aria-label="Buy Smart Watch">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" aria-labelledby="p3">
+            <figure class="product-media"><img src="https://images.unsplash.com/photo-1592921870789-04563d55041c?w=900&q=60&auto=format&fit=crop" alt="Wireless Earbuds"></figure>
+            <div class="product-body">
+              <h3 id="p3" class="product-title">Wireless Earbuds</h3>
+              <p class="product-desc">Noise‑cancelling earbuds with long battery life and snug fit for workouts.</p>
+
+              <div class="product-actions">
+                <div class="price">₹3,199</div>
+                <button class="buy-btn" aria-label="Buy Wireless Earbuds">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+ 
+      <section id="blogs" class="card-outer" style="margin-top:22px">
+        <h2 class="section-title">Latest Blogs</h2>
+        <div class="blog-grid">
+          <article class="blog-card" aria-labelledby="b1">
+            <div class="blog-media"><img src="https://images.unsplash.com/photo-1642132652806-8aa09801c2ab?w=1200&q=60&auto=format&fit=crop" alt="Responsive UI"></div>
+            <div class="blog-body">
+              <h3 id="b1" class="blog-title">How to Build Responsive UI</h3>
+              <p class="blog-excerpt">Practical tips to make layouts responsive: fluid units, breakpoints, and mobile-first thinking.</p>
+              <button class="read-more" aria-label="Read How to Build Responsive UI">Read More</button>
+            </div>
+          </article>
+
+          <article class="blog-card" aria-labelledby="b2">
+            <div class="blog-media"><img src="image.png" alt="Flexbox Design"></div>
+            <div class="blog-body">
+              <h3 id="b2" class="blog-title">Designing with Flexbox</h3>
+              <p class="blog-excerpt">A concise guide to using Flexbox for vertical centering, distribution and responsive reflow.</p>
+              <button class="read-more" aria-label="Read Designing with Flexbox">Read More</button>
+            </div>
+          </article>
+
+          <article class="blog-card" aria-labelledby="b3">
+            <div class="blog-media"><img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1200&q=60&auto=format&fit=crop" alt="Ecommerce Tips"></div>
+            <div class="blog-body">
+              <h3 id="b3" class="blog-title">E-commerce UI Tips</h3>
+              <p class="blog-excerpt">Small UI changes that increase conversions: hierarchy, trust signals, and clear CTAs.</p>
+              <button class="read-more" aria-label="Read E-commerce UI Tips">Read More</button>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+
+      <section id="contact" style="margin-top:22px">
+        <div class="card-outer">
+          <h3>Contact Us</h3>
+          <p class="muted">Questions about products or partnerships? <a href="#">Get in touch</a>.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ARIMAn — Frontend Portfolio</title>
+  <meta name="description" content="Personal portfolio showcasing bio, education, skills and contact info." />
+  <style>
+    :root{font-family:system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.45;color:#111}
+    body{max-width:960px;margin:2rem auto;padding:1rem}
+    header,main,footer{margin-bottom:1.25rem}
+    header{display:flex;gap:1rem;align-items:center}
+    figure{margin:0;max-width:160px}
+    img{width:100%;height:auto;border-radius:12px;display:block}
+    h1{font-size:1.5rem;margin:0}
+    .meta{color:#555;font-size:.95rem}
+    .grid{display:grid;grid-template-columns:1fr 300px;gap:1rem}
+    section.card,aside.card{padding:1rem;border:1px solid #e6e6e6;border-radius:10px;background:#fafafa}
+    ul.skills{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.5rem}
+    ul.skills li{background:#fff;border:1px solid #ddd;padding:.35rem .6rem;border-radius:6px;font-size:.9rem}
+    table{width:100%;border-collapse:collapse}
+    thead th, tfoot td{background:#f4f4f4;padding:.5rem;border:1px solid #e0e0e0;text-align:left}
+    tbody td{padding:.5rem;border:1px solid #eaeaea}
+    @media (max-width:780px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <figure>
+      
+      <img src="profile.jpg" alt="ARIMAn — profile photo" width="320" height="320">
+      <figcaption>ARIMAn — Frontend Developer (portfolio photo)</figcaption>
+    </figure>
+
+    <div>
+      <h1>ARIMAn</h1>
+      <p class="meta">Frontend Developer • HTML, CSS, JavaScript • Second-year B.Tech (Computer Science)</p>
+      <p class="meta">Location: India · Open to remote internships</p>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card" aria-labelledby="about-heading">
+      <h2 id="about-heading">Bio</h2>
+      <p>Hello — I'm <strong>ARIMAn</strong>, a frontend developer focused on semantic HTML, accessible UI, and clean, maintainable code. I build responsive interfaces with an emphasis on performance and usability. I enjoy converting designs into pixel-perfect webpages and learning modern frontend tooling.</p>
+
+      <h3>Education</h3>
+      <address>
+        <strong>B.Tech — Computer Science</strong><br>
+        XYZ Institute of Technology<br>
+        Expected graduation: <time datetime="2027-05">May 2027</time>
+      </address>
+
+      <h3>Skills</h3>
+      <ul class="skills" aria-label="Technical skills">
+        <li>HTML5 & Semantic Markup</li>
+        <li>CSS3 (Flexbox, Grid)</li>
+        <li>JavaScript (ES6+)</li>
+        <li>DOM Manipulation</li>
+        <li>Git & GitHub</li>
+        <li>Responsive Design</li>
+      </ul>
+
+      <h3>Contact</h3>
+      <p>
+        <a href="mailto:ariman@example.com">ariman@example.com</a><br>
+        <a href="tel:+911234567890">+91 12345 67890</a><br>
+        <a href="https://www.linkedin.com/in/ariman" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </p>
+    </section>
+
+    <aside class="card" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Selected Projects</h2>
+      <ul>
+        <li><strong>Portfolio Website</strong> — Semantic, responsive personal site (this project)</li>
+        <li><strong>Todo App</strong> — Vanilla JS app with localStorage</li>
+        <li><strong>Mini E‑commerce UI</strong> — CSS Grid product listing</li>
+      </ul>
+
+      <h3>Availability</h3>
+      <p>Open for internships and freelance front-end work. Prefer remote or hybrid roles.</p>
+    </aside>
+  </main>
+
+  <section class="card" aria-labelledby="timetable-heading">
+    <h2 id="timetable-heading">Academic Timetable — Semester Schedule</h2>
+
+    <table>
+      <caption class="sr-only">Weekly class timetable for Semester — 2</caption>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>09:00 — 10:00</td>
+          <td>Data Structures (Lab)</td>
+          <td>Mathematics</td>
+          <td>Data Structures</td>
+          <td>Physics</td>
+          <td>Computer Networks</td>
+        </tr>
+        <tr>
+          <td>10:15 — 11:15</td>
+          <td>Mathematics</td>
+          <td>Electronics</td>
+          <td>Mathematics</td>
+          <td>Data Structures</td>
+          <td>Software Engineering</td>
+        </tr>
+        <tr>
+          <td>11:30 — 12:30</td>
+          <td>Computer Networks</td>
+          <td>Data Structures</td>
+          <td>Electronics (Lab)</td>
+          <td>Mathematics</td>
+          <td>Open Slot / Study</td>
+        </tr>
+        <tr>
+          <td>13:30 — 14:30</td>
+          <td>Software Engineering</td>
+          <td>Computer Networks (Lab)</td>
+          <td>Software Engineering</td>
+          <td>Project Work</td>
+          <td>Project Work</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6">Semester: Fall 2025 — Timetable subject to change; check department notices.</td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+
+  <footer>
+    <p>©️ <time datetime="2025">2025</time> ARIMAn — Built with semantic HTML.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stellar Labs — Landing (Animations + Bootstrap)</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand:#0b62d1; --accent:#8b5cf6; --muted:#6b7280; --bg:#081229;
+      --card:#0f1724; --glass: rgba(255,255,255,0.04);
+    }
+
+    body{background: radial-gradient(1200px 600px at 10% 10%, rgba(139,92,246,0.06), transparent), var(--bg); color:#e6eef8; font-family:Inter,system-ui,Arial;}
+
+    .navbar-nav .nav-link{
+      color: rgba(255,255,255,0.9);
+      transition: transform .18s ease, background-color .22s ease, color .18s ease;
+      border-radius:8px; padding:.5rem .6rem;
+    }
+    .navbar-nav .nav-link:hover{
+      transform: translateY(-3px) scale(1.02);
+      background: linear-gradient(90deg, rgba(139,92,246,0.15), rgba(11,98,209,0.08));
+      color: white;
+      box-shadow: 0 8px 24px rgba(11,98,209,0.12);
+    }
+
+    .hero{position:relative;padding:4.5rem 0 6rem;overflow:hidden}
+    .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.35), transparent 40%);pointer-events:none}
+
+    .rocket{position:absolute;right:8%;bottom:-8%;width:160px;filter:drop-shadow(0 14px 40px rgba(11,98,209,0.16));transform-origin:center bottom;}
+    @keyframes rise-rocket{0%{transform: translateY(0) rotate(-6deg)}50%{transform: translateY(-14vh) rotate(6deg)}100%{transform: translateY(0) rotate(-6deg)}}
+    .rocket{animation: rise-rocket 7.5s ease-in-out infinite}
+
+    .astronaut{position:absolute;left:6%;top:22%;width:120px;filter:drop-shadow(0 8px 30px rgba(139,92,246,0.08));}
+    @keyframes float-astro{0%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(4deg)}100%{transform:translateY(0) rotate(-3deg)}}
+    .astronaut{animation: float-astro 6s ease-in-out infinite}
+
+    .stars{position:absolute;inset:0;pointer-events:none;background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 0 1px, transparent 1px), radial-gradient(circle at 70% 10%, rgba(255,255,255,0.06) 0 1px, transparent 1px), radial-gradient(circle at 40% 80%, rgba(255,255,255,0.04) 0 1px, transparent 1px); background-size: 30% 30%, 40% 40%, 20% 20%;}
+
+    .hero .lead-card{background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));border-radius:14px;padding:28px;border:1px solid rgba(255,255,255,0.04);max-width:640px}
+
+    .carousel-item{min-height:320px}
+    .carousel-caption{bottom:30px}
+
+    .features .card{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));border:1px solid rgba(255,255,255,0.03);box-shadow: 0 8px 28px rgba(11,98,209,0.06);}
+
+    footer{padding:28px 0;color: #9aa6c7}
+
+    @media (max-width: 768px){
+      .rocket{display:none}
+      .astronaut{display:none}
+      .hero{padding:3rem 0}
+      .hero .lead-card{padding:18px}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Stellar Labs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="stars"></div>
+    <div class="container position-relative">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="lead-card">
+            <h1 class="display-6 fw-bold">Launch products that feel alive</h1>
+            <p class="lead text-muted">We build delightful experiences with tiny, thoughtful animations and robust front-end foundations — ready for scale.</p>
+            <p><a href="#features" class="btn btn-primary me-2">Explore features</a><a href="#pricing" class="btn btn-outline-light">See pricing</a></p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-none d-lg-block position-relative">
+          <img class="astronaut" src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=500&q=60&auto=format&fit=crop" alt="Floating astronaut">
+          <img class="rocket" src="https://images.unsplash.com/photo-1495562569060-2eec283d3391?w=600&q=60&auto=format&fit=crop" alt="Rocket">
+        </div>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+  <section class="py-5">
+    <div class="container">
+      <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner rounded-3 overflow-hidden">
+          <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1503435824048-a7997744b3f4?w=1600&q=60&auto=format&fit=crop" class="d-block w-100" alt="Showcase 1">
+            <div class="carousel-caption d-none d-md-block text-start">
+              <h5 class="fw-bold">Design systems that scale</h5>
+              <p class="small">Atomic components, consistent motion and accessible patterns.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=60&auto=format&fit=crop" class="d-block w-100" alt="Showcase 2">
+            <div class="carousel-caption d-none d-md-block text-start">
+              <h5 class="fw-bold">Performance-first frontends</h5>
+              <p class="small">Tiny bundles, fast paints, and resilient UIs for modern apps.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="py-5">
+    <div class="container">
+      <h2 class="mb-4">Core Features</h2>
+      <div class="row g-4 features">
+        <div class="col-md-4">
+          <div class="card p-3 h-100">
+            <div class="card-body">
+              <h5 class="card-title">Micro-interactions</h5>
+              <p class="card-text text-muted">Subtle transitions and motion that guide, not distract.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3 h-100">
+            <div class="card-body">
+              <h5 class="card-title">Accessible by default</h5>
+              <p class="card-text text-muted">Keyboard-first components, proper landmarks and ARIA patterns.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3 h-100">
+            <div class="card-body">
+              <h5 class="card-title">Performance</h5>
+              <p class="card-text text-muted">Optimized bundles, critical CSS and measured rendering.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="py-5 bg-transparent">
+    <div class="container">
+      <h2 class="mb-4">Featured Products</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card text-dark h-100">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=60&auto=format&fit=crop" class="card-img-top" alt="Product A">
+            <div class="card-body">
+              <h5 class="card-title">Orbit Headphones</h5>
+              <p class="card-text text-muted">Immersive sound with long battery life.</p>
+              <a href="#" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card text-dark h-100">
+            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1200&q=60&auto=format&fit=crop" class="card-img-top" alt="Product B">
+            <div class="card-body">
+              <h5 class="card-title">Lunar Smartwatch</h5>
+              <p class="card-text text-muted">Health insights and elegant design.</p>
+              <a href="#" class="btn btn-outline-light">Learn</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card text-dark h-100">
+            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1200&q=60&auto=format&fit=crop" class="card-img-top" alt="Product C">
+            <div class="card-body">
+              <h5 class="card-title">Comet Lamp</h5>
+              <p class="card-text text-muted">Ambient desk light with warm gradients.</p>
+              <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="py-5">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-6">
+          <h3>Simple pricing, no surprises</h3>
+          <p class="text-muted">Start with a free trial and only pay when you ship.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a class="btn btn-outline-light" href="#">Start free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">©️ 2025 Stellar Labs — Built with care</p>
+        </div>
+        <div class="col-md-6 text-md-end text-muted">
+          <small>Terms · Privacy · Contact</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
