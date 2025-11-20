@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 Happy Birthday Ashini 🌸</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="custom-cursor" id="cursor"></div>
+    
+    <!-- Entrance Screen -->
+    <div class="entrance-screen" id="entranceScreen">
+        <div class="gift-box">🎁</div>
+        <div class="entrance-text">Click anywhere to enter the magical birthday world! ✨</div>
+    </div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <!-- Music Controls -->
+    <div class="music-controls">
+      <button class="music-btn" id="musicToggle">🎵</button>
+      <button class="dark-mode-btn" id="darkModeToggle">🌙</button>
+    </div>
+    <audio id="backgroundMusic" loop autoplay>
+      <source src="happy.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Main Site -->
+    <div class="main-site" id="mainSite">
+      <!-- Hero Section -->
+      <section class="section hero-section">
+        <h1 class="hero-title" id="heroTitle">🎉 Happy Birthday Ashini! 🎉 <br> Wishing you all the joy and happiness today!</h1>
+        <p class="hero-subtitle">Today is all about celebrating YOU! 💖</p>
+      </section>
+    </div>
+
+        <!-- Personal Message Section -->
+        <section class="section message-section">
+            <h2 class="section-title">💌 A Message From My Heart</h2>
+            <div class="love-letter">
+                <p>My Dearest Birthday Girl Ashini,</p>
+                <p>guess who is gonna be legally mature now , ofcouse you!!!!🌟</p>
+                <p>Every moment i spent with you is a treasure to me , and I'm so grateful to have you in my life (even it is online for now). You bring so much joy, love, and happiness wherever you go. 💕</p>
+                <p>I hope your birthday is filled with all the love, laughter, and wonderful surprises you deserve. You mean the world to me! 🌍</p>
+                <p>With all my love,<br>Your Special Someone 💖</p>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="section photo-gallery">
+          <h2 class="section-title">📸 Beautiful Memories</h2>
+          <div class="gallery-container">
+            <div class="gallery-slide gallary slide active">
+              <img src="as1.jpg" alt="Your Cutest Smile" style="width:100%;max-width:300px;border-radius:12px;">
+              <br>Your Cutest Smile<br>🌸
+            </div>
+            <div class="gallery-slide gallary slide">
+              <img src="as2.png" alt="That Perfect Moment" style="width:100%;max-width:300px;border-radius:12px;">
+              <br>That Perfect Moment<br>✨
+            </div>
+            
+          <p>Every photo tells a story of your beautiful soul 💕</p>
+        </section>
+
+        <!-- Interactive Balloon Game -->
+        <section class="section interactive-section">
+            <h2 class="section-title">🎈 Pop the Easter eggs for Surprises!</h2>
+            <p>Click each egg to reveal a special birthday message! 🎁</p>
+            <div class="balloon-game">
+                <div class="balloon balloon-1">🎈</div>
+                <div class="balloon balloon-2">🎈</div>
+                <div class="balloon balloon-3">🎈</div>
+                <div class="balloon balloon-4">🎈</div>
+                <div class="balloon balloon-5">🎈</div>
+                <div class="balloon balloon-6">🎈</div>
+            </div>
+        </section>
+
+        <!-- Memory Timeline -->
+        <section class="section memory-timeline">
+            <h2 class="section-title">🕰️ Our Beautiful Journey</h2>
+            <div class="timeline-item">
+                <strong>💬 The First Hello</strong>
+                <p>The moment that started this beautiful connection... , started from a fun flirting which stunned me.</p>
+            </div>
+            <div class="timeline-item">
+                <strong>🌟 When I Realized</strong>
+                <p>How truly special and wonderful you are...</p>
+            </div>
+            <div class="timeline-item">
+                <strong>💕 Every Day Since</strong>
+                <p>Has been brighter because of you...</p>
+            </div>
+            <div class="timeline-item">
+                <strong>we also got some fights💕 </strong>
+                <p>But every challenge has only made us stronger and nothing will rotten our Memories (i hope!!)</p>
+            </div>
+        </section>
+
+        <!-- Virtual Gift Box -->
+        <section class="section interactive-section">
+            <h2 class="section-title">🎁 Your Virtual Gift Box</h2>
+            <div class="gift-box-wrap">
+              <button class="gift" id="giftBox" aria-expanded="false" aria-controls="giftMessage">
+                <span class="gift-lid"></span>
+                <span class="gift-body"></span>
+                <span class="gift-bow"></span>
+              </button>
+              <div class="gift-message" id="giftMessage" aria-hidden="true"></div>
+            </div>
+            <p>Click the gift box for your special surprise! 💝</p>
+        </section>
+
+        <!-- Grand Finale -->
+        <section class="section">
+            <h1>🎉 HAPPY BIRTHDAY! 🎉</h1>
+            <p>You are loved, you are special, you are wonderful! 💖</p>
+        </section>
+    </div>
+
+<!-- Link JavaScript file at the end -->
+<script src="script.js"></script>
+
+
+</body>
+</html>
