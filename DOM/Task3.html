@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+<img id="slide" width="300" height="200">
+<br><br>
+<button onclick="prev()">Previous</button>
+<button onclick="next()">Next</button>
+
+<script>
+let images = [
+  "https://picsum.photos/300/200?1",
+  "https://picsum.photos/300/200?2",
+  "https://picsum.photos/300/200?3",
+  "https://picsum.photos/300/200?4",
+  "https://picsum.photos/300/200?5"
+];
+
+let index = 0;
+let slide = document.getElementById("slide");
+slide.src = images[index];
+
+function show() {
+  slide.src = images[index];
+}
+
+function next() {
+  index = (index + 1) % images.length;
+  show();
+}
+
+function prev() {
+  index = (index - 1 + images.length) % images.length;
+  show();
+}
+
+let timer = setInterval(next, 3000);
+
+slide.onmouseover = function() {
+  clearInterval(timer);
+};
+
+slide.onmouseout = function() {
+  timer = setInterval(next, 3000);
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return validate()">
+  <input id="name" placeholder="Name">
+  <p id="nameError" style="color:red;"></p>
+  <input id="email" placeholder="Email">
+  <p id="emailError" style="color:red;"></p>
+  <input id="password" type="password" placeholder="Password">
+  <p id="passError" style="color:red;"></p>
+  <button type="submit">Register</button>
+</form>
+
+<script>
+function validate() {
+  let name = document.getElementById("name");
+  let email = document.getElementById("email");
+  let pass = document.getElementById("password");
+  let valid = true;
+  document.getElementById("nameError").textContent = "";
+  document.getElementById("emailError").textContent = "";
+  document.getElementById("passError").textContent = "";
+
+  if (name.value.trim() === "") {
+    document.getElementById("nameError").textContent = "Name is required";
+    name.style.border = "2px solid red";
+    valid = false;
+  } else name.style.border = "2px solid green";
+
+  if (email.value.trim() === "") {
+    document.getElementById("emailError").textContent = "Email is required";
+    email.style.border = "2px solid red";
+    valid = false;
+  } else if (!email.value.includes("@")) {
+    document.getElementById("emailError").textContent = "Invalid email";
+    email.style.border = "2px solid red";
+    valid = false;
+  } else email.style.border = "2px solid green";
+
+  if (pass.value.trim() === "") {
+    document.getElementById("passError").textContent = "Password is required";
+    pass.style.border = "2px solid red";
+    valid = false;
+  } else if (pass.value.length < 8) {
+    document.getElementById("passError").textContent = "Minimum 8 characters";
+    pass.style.border = "2px solid red";
+    valid = false;
+  } else pass.style.border = "2px solid green";
+
+  return valid;
+}
+</script>
+</body>
+</html>

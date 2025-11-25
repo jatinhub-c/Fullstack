@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<textarea id="textBox" rows="5" cols="40"></textarea>
+<p id="count">Characters left: 100</p>
+
+<script>
+let limit = 100;
+let textBox = document.getElementById("textBox");
+let count = document.getElementById("count");
+
+textBox.addEventListener("input", function () {
+  let len = textBox.value.length;
+  if (len > limit) {
+    textBox.value = textBox.value.substring(0, limit);
+    len = limit;
+  }
+  let left = limit - len;
+  count.textContent = "Characters left: " + left;
+  if (left > 60) count.style.color = "green";
+  else if (left > 20) count.style.color = "orange";
+  else count.style.color = "red";
+});
+</script>
+</body>
+</html>
