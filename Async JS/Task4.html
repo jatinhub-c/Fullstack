@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+li{margin:5px 0}
+button{padding:5px 10px}
+</style>
+</head>
+<body>
+
+<p id="msg"></p>
+<ul id="list"></ul>
+<button id="retry">Retry</button>
+
+<script>
+let msg=document.getElementById("msg");
+let list=document.getElementById("list");
+let retry=document.getElementById("retry");
+
+function loadPosts(){
+  return new Promise((res,rej)=>{
+    setTimeout(()=>{
+      if(Math.random()<0.7) res(["Post A","Post B","Post C"]);
+      else rej();
+    },2000);
+  });
+}
+
+async function show(){
+  msg.textContent="Loading posts...";
+  list.innerHTML="";
+  try{
+    let data=await loadPosts();
+    msg.textContent="";
+    data.forEach(p=>list.innerHTML+=`<li>${p}</li>`);
+  }catch{
+    msg.textContent="Failed. Try again.";
+  }
+}
+
+retry.onclick=show;
+show();
+</script>
+
+</body>
+</html>

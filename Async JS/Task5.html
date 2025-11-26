@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:300px}
+.card{border:1px solid #000;padding:5px}
+input{margin-bottom:10px;padding:5px}
+</style>
+</head>
+<body>
+
+<input id="search" placeholder="Search">
+<div id="grid" class="grid"></div>
+
+<script>
+let data=[];
+let grid=document.getElementById("grid");
+fetch("https://fakestoreapi.com/products")
+.then(r=>r.json())
+.then(d=>{data=d;display(d);});
+
+function display(items){
+  grid.innerHTML="";
+  items.forEach(p=>grid.innerHTML+=`<div class="card">${p.title}<br>$${p.price}</div>`);
+}
+
+let timer;
+document.getElementById("search").addEventListener("input",function(){
+  clearTimeout(timer);
+  let val=this.value.toLowerCase();
+  timer=setTimeout(()=>{
+    let f=data.filter(p=>p.title.toLowerCase().includes(val));
+    display(f);
+  },300);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;width:330px}
+img{width:100px;height:100px;opacity:0;transition:0.5s}
+button{margin-top:10px;padding:5px 10px}
+</style>
+</head>
+<body>
+
+<div id="grid" class="grid"></div>
+<button id="load">Load More</button>
+
+<script>
+let grid=document.getElementById("grid");
+async function loadImages(){
+  let r=await fetch("https://source.unsplash.com/random/100x100");
+  let img=document.createElement("img");
+  img.src=r.url;
+  grid.appendChild(img);
+  setTimeout(()=>img.style.opacity=1,50);
+}
+for(let i=0;i<6;i++)loadImages();
+document.getElementById("load").onclick=()=>{for(let i=0;i<6;i++)loadImages();}
+</script>
+
+</body>
+</html>

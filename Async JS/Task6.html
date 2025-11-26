@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.bold{font-weight:bold}
+li{margin:5px 0}
+</style>
+</head>
+<body>
+
+<ul id="steps"></ul>
+
+<script>
+let steps=document.getElementById("steps");
+function step(msg){return new Promise(res=>setTimeout(()=>res(msg),1000));}
+
+async function run(){
+  steps.innerHTML="";
+  let li1=document.createElement("li");li1.textContent="Step 1 done";li1.className="bold";steps.appendChild(li1);
+  await step();li1.className="";
+  let li2=document.createElement("li");li2.textContent="Step 2 done";li2.className="bold";steps.appendChild(li2);
+  await step();li2.className="";
+  let li3=document.createElement("li");li3.textContent="Step 3 done";li3.className="bold";steps.appendChild(li3);
+}
+run();
+</script>
+
+</body>
+</html>

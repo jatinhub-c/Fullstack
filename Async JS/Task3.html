@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+input,button{padding:5px}
+#result{margin-top:10px;font-size:18px}
+#result span{display:block}
+#error{color:red}
+</style>
+</head>
+<body>
+
+<input id="city" placeholder="City">
+<button id="check">Check</button>
+<p id="error"></p>
+<div id="result"></div>
+
+<script>
+let key="YOUR_KEY";
+let btn=document.getElementById("check");
+btn.onclick=async function(){
+  let c=document.getElementById("city").value;
+  let res=document.getElementById("result");
+  let err=document.getElementById("error");
+  res.innerHTML="";
+  err.textContent="";
+  try{
+    let r=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${c}&appid=${key}&units=metric`);
+    let d=await r.json();
+    if(d.cod!=200){err.textContent="Invalid city";return;}
+    res.innerHTML=`<span>Temp: ${d.main.temp}°C</span><span>Humidity: ${d.main.humidity}%</span><span>${d.weather[0].main}</span>`;
+  }catch{err.textContent="Error"}
+}
+</script>
+
+</body>
+</html>

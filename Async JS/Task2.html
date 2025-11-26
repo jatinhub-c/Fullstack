@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#joke{font-size:18px;margin:10px 0}
+button{padding:5px 10px}
+</style>
+</head>
+<body>
+
+<p id="joke"></p>
+<button id="next">Next Joke</button>
+
+<script>
+let joke=document.getElementById("joke");
+let btn=document.getElementById("next");
+function loadJoke(){
+  btn.disabled=true;
+  fetch("https://official-joke-api.appspot.com/random_joke")
+  .then(r=>r.json())
+  .then(j=>{
+    joke.textContent=j.setup+" - "+j.punchline;
+    btn.disabled=false;
+  })
+  .catch(()=>btn.disabled=false);
+}
+btn.onclick=loadJoke;
+loadJoke();
+</script>
+
+</body>
+</html>
